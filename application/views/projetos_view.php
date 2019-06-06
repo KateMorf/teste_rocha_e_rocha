@@ -11,6 +11,15 @@
 
     <div class="container">
         <h1><center>Lista de Projetos</center></h1>
+
+        <form action="<?php echo site_url('projetos');?>" method="post">
+                <div class="form-group">
+                    <label>Id do Projeto</label>
+                    <input type="text" class="form-control" name="projeto_id" placeholder="Id do Projeto">
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+        <br><br> 
         <table class="table table-striped">
         <thead>
             <tr>
@@ -24,11 +33,11 @@
             foreach($projetos as $pr):
             ?>
                 <tr>
-                <th scope="row"><?=$pr->getId();?></th>
-                <td><?=$pr->getDescricao();?></td>
+                <th scope="row"><?=$pr->id;?></th>
+                <td><?=$pr->descricao;?></td>
                 <td>
-                    <a href="projetos/get_edit/<?=$pr->getId()?>" class="btn btn-sm btn-info">Alterar</a>
-                    <a href="projetos/delete/<?=$pr->getId()?>" class="btn btn-sm btn-danger">Deletar</a>
+                    <a href="projetos/get_edit/<?=$pr->id?>" class="btn btn-sm btn-info">Alterar</a>
+                    <a href="projetos/delete/<?=$pr->id?>" class="btn btn-sm btn-danger">Deletar</a>
                 </td>
                 </tr>
             <?php endforeach;?>

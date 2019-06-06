@@ -7,8 +7,13 @@ class Projetos extends CI_Controller{
     }
     
 	function index(){
-        $data['projetos'] = $this->doctrine->em->getRepository("Entity\Projeto")->findAll();				
-		$this->load->view('projetos_view',$data);
+        $projeto_id = $this->input->post('projeto_id');
+        if(!empty($projeto_id)){
+            $data['projetos'] = $this->doctrine->em->getRepository("Entity\Projeto")->findBy(array('id' => $projeto_id));
+        }else{
+            $data['projetos'] = $this->doctrine->em->getRepository("Entity\Projeto")->findAll();
+        }				
+        $this->load->view('projetos_view',$data);
     }
 
     function add_new(){
