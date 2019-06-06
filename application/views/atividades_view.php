@@ -10,12 +10,12 @@
 <body> 		
 
     <div class="container">
-        <h1><center>Lista de Projetos</center></h1>
+        <h1><center>Lista de Atividades</center></h1>
 
-        <form action="<?php echo site_url('projetos');?>" method="post">
+        <form action="<?php echo site_url('atividades');?>" method="post">
                 <div class="form-group">
-                    <label>Id do Projeto</label>
-                    <input type="text" class="form-control" name="projeto_id" placeholder="Id do Projeto">
+                    <label>Id da Atividade</label>
+                    <input type="text" class="form-control" name="atividade_id" placeholder="Id da Atividade">
                 </div>
                 <button type="submit" class="btn btn-primary">Buscar</button>
         </form>
@@ -23,28 +23,32 @@
         <table class="table table-striped">
         <thead>
             <tr>
+            <th scope="col">Id da Atividade</th>
+            <th scope="col">Descrição da Atividade</th>
+            <th scope="col">Data do Cadastro</th>
             <th scope="col">Id do Projeto</th>
-            <th scope="col">Descrição do Projeto</th>
             <th width="200">Action</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            foreach($projetos as $pr):
+            foreach($atividades as $at):
             ?>
                 <tr>
-                <th scope="row"><?=$pr->id;?></th>
-                <td><?=$pr->descricao;?></td>
+                <th scope="row"><?=$at->id;?></th>
+                <td><?=$at->descricao;?></td>
+                <td><?=$at->dataCadastro;?></td>
+                <td><?=$at->idProjeto->getId();?></td>
                 <td>
-                    <a href="projetos/get_edit/<?=$pr->id?>" class="btn btn-sm btn-info">Alterar</a>
-                    <a href="projetos/delete/<?=$pr->id?>" class="btn btn-sm btn-danger">Deletar</a>
+                    <a href="atividades/get_edit/<?=$at->id?>" class="btn btn-sm btn-info">Alterar</a>
+                    <a href="atividades/delete/<?=$at->id?>" class="btn btn-sm btn-danger">Deletar</a>
                 </td>
                 </tr>
             <?php endforeach;?>
         </tbody>
         </table>
-        <a href="projetos/add_new" class="btn btn-sm btn-info">Adicionar</a>    
-        <a href="atividades" class="btn btn-sm btn-info">Lista de Atividades</a>
+        <a href="atividades/add_new" class="btn btn-sm btn-info">Adicionar</a>
+        <a href="projetos" class="btn btn-sm btn-info">Lista de Projetos</a>
     </div>
 		
     <!-- load jquery js file -->
