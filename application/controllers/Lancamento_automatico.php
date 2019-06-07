@@ -6,15 +6,12 @@ class Lancamento_automatico extends CI_Controller{
 		parent::__construct();
     }
     
-	function index(){
-        // $atividade_id = $this->input->post('atividade_id');
-        // if(!empty($atividade_id)){
-        //     $data['atividades'] = $this->doctrine->em->getRepository("Entity\LancamentoAutomatico")->findBy(array('id' => $atividade_id));
-        // }else{
-        //     $data['atividades'] = $this->doctrine->em->getRepository("Entity\LancamentoAutomatico")->findAll();
-        // }				
+	function index(){			
+        $data['clientes_cpf'] = $this->doctrine->em->getRepository("Entity\PessoaFisica")->findAll();
+        $data['clientes_cnpj'] = $this->doctrine->em->getRepository("Entity\PessoaJuridica")->findAll();
         $data['clientes'] = $this->doctrine->em->getRepository("Entity\Pessoa")->findAll();
         $data['planos_conta'] = $this->doctrine->em->getRepository("Entity\PlanosConta")->findAll();
+        $data['lancamento_automatico'] = $this->doctrine->em->getRepository("Entity\LancamentoAutomatico")->findAll();
         $this->load->view('lancamento_automatico/lancamento_automatico_view', $data);
     }
 
