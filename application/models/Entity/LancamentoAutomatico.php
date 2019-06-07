@@ -19,31 +19,31 @@ class LancamentoAutomatico{
 	public $id;
 
     /**
-     * @Column(name="tipo", type="string", lenght=50, nullable=true)
+     * @Column(name="tipo", type="string", length=50, nullable=true)
      */
     public $tipo;
 
     /**
-     * @Column(name="valor", type="decimal", lenght=10, precision=0, nullable=true)
+     * @Column(name="valor", type="decimal", length=10, precision=0, nullable=true)
      */
     public $valor;
 
     /**
-     * @Column(name="descricao", type="string", lenght=255, nullable=true)
+     * @Column(name="descricao", type="string", length=255, nullable=true)
      */
     public $descricao;
 
     /**
 	* @ManyToOne(targetEntity="Pessoa")
-	* @JoinColumn(name="idPessoa", referencedColumnName="id")
+	* @JoinColumn(name="idCliente", referencedColumnName="id")
     */
     public $idCliente;
 
     /**
 	* @ManyToOne(targetEntity="PlanosConta")
-	* @JoinColumn(name="planosConta", referencedColumnName="id")
+	* @JoinColumn(name="planoConta", referencedColumnName="id")
     */
-    public $planosConta;
+    public $planoConta;
 
 	public function getId(){
 			return $this->id;
@@ -86,12 +86,12 @@ class LancamentoAutomatico{
     }
     
     public function getPlanosConta(){				
-        return $this->planosConta;
+        return $this->planoConta;
     }
 
-    public function setPlanosConta($planosConta){				
-            $this->planosConta = $planosConta;
-            return $this->planosConta;
+    public function setPlanoConta($planoConta){				
+            $this->planoConta = $planoConta;
+            return $this->planoConta;
     }
 
 }

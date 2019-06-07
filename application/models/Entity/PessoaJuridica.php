@@ -19,7 +19,7 @@ class PessoaJuridica{
 	public $id;
 
     /**
-     * @Column(name="cnpj", type="string", lenght=50, nullable=false)
+     * @Column(name="cnpj", type="string", length=50, nullable=false)
      */
     public $cnpj;
     

@@ -19,7 +19,7 @@ class PessoaFisica{
 	public $id;
 
     /**
-     * @Column(name="cpf", type="string", lenght=50, nullable=false)
+     * @Column(name="cpf", type="string", length=50, nullable=false)
      */
     public $cpf;
     

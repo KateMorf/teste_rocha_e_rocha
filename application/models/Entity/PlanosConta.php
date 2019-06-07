@@ -19,7 +19,7 @@ class PlanosConta{
 	public $id;
 
     /**
-     * @Column(name="descricao", type="string", lenght=50, nullable=false)
+     * @Column(name="descricao", type="string", length=50, nullable=false)
      */
     public $descricao;
 

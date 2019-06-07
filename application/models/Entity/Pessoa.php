@@ -19,21 +19,21 @@ class Pessoa{
 	public $id;
 
     /**
-     * @Column(name="descricao", type="string", nullable=false, lenght=255)
+     * @Column(name="nome", type="string", nullable=false, length=255)
      */
-	public $descricao;
+	public $nome;
 
 
 	public function getId(){
 			return $this->id;
 	}
 
-	public function getDescricao(){				
-			return $this->descricao;
+	public function getNome(){				
+			return $this->nome;
 	}
 
-	public function setDescricao($descricao){				
-			$this->descricao = $descricao;
-			return $this->descricao;
+	public function setNome($nome){				
+			$this->nome = $nome;
+			return $this->nome;
 	}	
 }
